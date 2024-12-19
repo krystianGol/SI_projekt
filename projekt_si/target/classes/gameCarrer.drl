@@ -1,0 +1,753 @@
+package com.example.rules;
+
+import models.PossibleAnswers;
+import models.Question;
+import models.Answer;
+
+rule "1" 
+when
+    $answer: Answer(question.text == "Do you mind being underappreciated?", answer == "No")
+then
+    Question newQuestion = new Question("Do you like to be alone?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "2" 
+when
+    $answer: Answer(question.text == "Do you like to be alone?", answer == "No")
+then
+    Question newQuestion = new Question("Would you rather be in the movies?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "3" 
+when
+    $answer: Answer(question.text == "Would you rather be in the movies?", answer == "No")
+then
+    Question newQuestion = new Question("Did you mind the errors in this graph?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "4" 
+when
+    $answer: Answer(question.text == "Did you mind the errors in this graph?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Quality Assurance!!!");
+    insert(answers);
+end
+
+rule "5" 
+when
+    $answer: Answer(question.text == "Did you mind the errors in this graph?", answer == "No")
+then
+    Question newQuestion = new Question("Do you want to chose who to hang with?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "6" 
+when
+    $answer: Answer(question.text == "Do you want to chose who to hang with?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Community Manager!!!");
+    insert(answers);
+end
+
+rule "7" 
+when
+    $answer: Answer(question.text == "Do you want to chose who to hang with?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Guild Leader!!!");
+    insert(answers);
+end
+
+rule "8" 
+when
+    $answer: Answer(question.text == "Would you rather be in the movies?", answer == "Yes")
+then
+    Question newQuestion = new Question("You a TV or movie celebrity?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "9" 
+when
+    $answer: Answer(question.text == "You a TV or movie celebrity?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Voice Actor!!!");
+    insert(answers);
+end
+
+rule "10" 
+when
+    $answer: Answer(question.text == "You a TV or movie celebrity?", answer == "No")
+then
+    Question newQuestion = new Question("Are you young, caucasian and hot?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "11"
+when
+    $answer: Answer(question.text == "Are you young, caucasian and hot?", answer == "Yes")
+then
+    Question newQuestion = new Question("Are you male?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "11a"
+when
+    $answer: Answer(question.text == "Are you male?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Military Shooter Packaging Model!!!");
+    insert(answers);
+end
+
+rule "11b"
+when
+    $answer: Answer(question.text == "Are you male?", answer == "No")
+then
+    Question newQuestion = new Question("Do you like arts and crafts?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "12"
+when
+    $answer: Answer(question.text == "Are you young, caucasian and hot?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Motion Capture Actor!!!");
+    insert(answers);
+end
+
+rule "13"
+when
+    $answer: Answer(question.text == "Do you like arts and crafts?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Cosplayer!!!");
+    insert(answers);
+end
+
+rule "14"
+when
+    $answer: Answer(question.text == "Do you like arts and crafts?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Booth Babe!!!");
+    insert(answers);
+end
+
+rule "15"
+when
+    $answer: Answer(question.text == "Do you mind being underappreciated?", answer == "Yes")
+then
+    Question newQuestion = new Question("Are you visually oriented");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "16"
+when
+    $answer: Answer(question.text == "Do you like to work with unfinished tools?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Level Designer!!!");
+    insert(answers);
+end
+
+rule "17"
+when
+    $answer: Answer(question.text == "Do you like to work with unfinished tools?", answer == "No")
+then
+    Question newQuestion = new Question("Do you speak Spreadsheet");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "18"
+when
+    $answer: Answer(question.text == "Do you prefer working over talking?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Art Director!!!");
+    insert(answers);
+end
+
+rule "19"
+when
+    $answer: Answer(question.text == "Do you prefer working over talking?", answer == "Yes")
+then
+    Question newQuestion = new Question("Would you rather be a 'proper' artist?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "20"
+when
+    $answer: Answer(question.text == "Would you rather be a 'proper' artist?", answer == "Yes")
+then
+    Question newQuestion = new Question("Are you French?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "21"
+when
+    $answer: Answer(question.text == "Would you rather be a 'proper' artist?", answer == "No")
+then
+    Question newQuestion = new Question("Want to spend two weeks on two seconds?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "22"
+when
+    $answer: Answer(question.text == "Want to spend two weeks on two seconds?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Animator!!!");
+    insert(answers);
+end
+
+rule "23"
+when
+    $answer: Answer(question.text == "Want to spend two weeks on two seconds?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("3D Artist!!!");
+    insert(answers);
+end
+
+rule "24"
+when
+    $answer: Answer(question.text == "Do you speak Spreadsheet?", answer == "Yes")
+then
+    Question newQuestion = new Question("Do you want to be told what to do?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "25"
+when
+    $answer: Answer(question.text == "Do you speak Spreadsheet?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Writer!!!");
+    insert(answers);
+end
+
+rule "26"
+when
+    $answer: Answer(question.text == "Do you want to be told what to do?", answer == "Yes")
+then
+    Question newQuestion = new Question("Do you obsess excessively over even the tiniest details?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "26a"
+when
+    $answer: Answer(question.text == "Do you want to be told what to do?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Lead Game Designer!!!");
+    insert(answers);
+end
+
+rule "27"
+when
+    $answer: Answer(question.text == "Do you obsess excessively over even the tiniest details?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Event Scripter!!!");
+    insert(answers);
+end
+
+rule "28"
+when
+    $answer: Answer(question.text == "Do you obsess excessively over even the tiniest details?", answer == "Yes")
+then
+    Question newQuestion = new Question("Do you have a fixation on gore and blood?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "29"
+when
+    $answer: Answer(question.text == "Do you have a fixation on gore and blood?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Combat Designer!!!");
+    insert(answers);
+end
+
+rule "30"
+when
+    $answer: Answer(question.text == "Do you have a fixation on gore and blood?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Game Designer!!!");
+    insert(answers);
+end
+
+rule "31"
+when
+    $answer: Answer(question.text == "Do you like to be alone?", answer == "Yes")
+then
+    Question newQuestion = new Question("Are you musical?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "32"
+when
+    $answer: Answer(question.text == "Are you musical?", answer == "Yes")
+then
+    Question newQuestion = new Question("Do you like to shoot or blow things up?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "33"
+when
+    $answer: Answer(question.text == "Are you musical?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Office IT!!!");
+    insert(answers);
+end
+
+rule "34"
+when
+    $answer: Answer(question.text == "Do you like to shoot or blow things up?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Sound Designer!!!");
+    insert(answers);
+end
+
+rule "35"
+when
+    $answer: Answer(question.text == "Do you like to shoot or blow things up?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("Composer!!!");
+    insert(answers);
+end
+
+rule "36"
+when
+    $answer: Answer(question.text == "Are you French?", answer == "No")
+then
+    Question newQuestion = new Question("Asian?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "36a"
+when
+    $answer: Answer(question.text == "Are you French?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Comic Artist!!!");
+    insert(answers);
+end
+
+rule "37"
+when
+    $answer: Answer(question.text == "Asian?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Concept Artist!!!");
+    insert(answers);
+end
+
+rule "37a"
+when
+    $answer: Answer(question.text == "Asian?", answer == "No")
+then
+    Question newQuestion = new Question("Did you enjoy crafting crates?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Love Money" 
+when
+    $answer: Answer(question.text == "Do you love money?", answer == "Yes")
+then
+    Question newQuestion = new Question("Do you like doing productive work?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Productive Work" 
+when
+    $answer: Answer(question.text == "Do you like doing productive work?", answer == "Yes")
+then
+    Question newQuestion = new Question("Can you code?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No", "Well... it's been a while");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Can Code" 
+when
+    $answer: Answer(question.text == "Can you code?", answer == "Yes")
+then
+    System.out.println("Rule fired: Can you code?");
+    PossibleAnswers answers = new PossibleAnswers("Programmer!!!");
+    insert(answers);
+end
+
+
+rule "Cannot Code" 
+when
+    $answer: Answer(question.text == "Can you code?", answer == "No")
+then
+    PossibleAnswers answers = new PossibleAnswers("You're shit out of luck");
+    insert(answers);
+end
+
+rule "Been a while code" 
+when
+    $answer: Answer(question.text == "Can you code?", answer == "Well... it's been a while")
+then
+    PossibleAnswers answers = new PossibleAnswers("Technical lead");
+    insert(answers);
+end
+
+rule "No Productive Work" 
+when
+    $answer: Answer(question.text == "Do you like doing productive work?", answer == "No")
+then
+    Question newQuestion = new Question("Are you afraid of responsibility?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Afraid of Responsibility" 
+when
+    $answer: Answer(question.text == "Are you afraid of responsibility?", answer == "Yes")
+then
+    System.out.println("Rule fired: Are you afraid of responsibility?");
+    PossibleAnswers answers = new PossibleAnswers("Consultant");
+    insert(answers);
+end
+
+
+rule "Not Afraid of Responsibility" 
+when
+    $answer: Answer(question.text == "Are you afraid of responsibility?", answer == "No")
+then
+    Question newQuestion = new Question("Do you have a 'grand vision'?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Grand Vision" 
+when
+    $answer: Answer(question.text == "Do you have a 'grand vision'?", answer == "Yes")
+then
+    PossibleAnswers answers = new PossibleAnswers("Creative Director");
+    insert(answers);
+end
+
+rule "No Grand Vision" 
+when
+    $answer: Answer(question.text == "Do you have a 'grand vision'?", answer == "No")
+then
+    Question newQuestion = new Question("Do you have any money?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Have money"
+when
+	$answer: Answer(question.text == "Do you have any money?", answer == "Yes")
+then
+	Question newQuestion = new Question("Do you have a conscience?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "No money"
+when 
+	$answer: Answer(question.text == "Do you have any money?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("Producer");
+    insert(answers);
+end
+
+rule "Have a conscience"
+when
+	$answer: Answer(question.text == "Do you have a conscience?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Studio Head");
+    insert(answers);
+end
+
+rule "Lack of conscience"
+when
+	$answer: Answer(question.text == "Do you have a conscience?", answer == "No")
+then 
+	PossibleAnswers answers = new PossibleAnswers("Social Games Studio Head");
+    insert(answers);
+end
+
+rule "No love money"
+when 
+	$answer: Answer(question.text == "Do you love money?", answer == "No")
+then
+	Question newQuestion = new Question("Do you have exceptional talent?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Exceptional talent"
+when
+	$answer: Answer(question.text == "Do you have exceptional talent?", answer == "Yes")
+then
+	Question newQuestion = new Question("Can you get excited fot other peoples' ideas?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No", "Nah, but i can fake it");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "No Exceptional talent"
+when
+	$answer: Answer(question.text == "Do you have exceptional talent?", answer == "No")
+then
+	Question newQuestion = new Question("Are you bitter about it?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Bitter about it"
+when
+	$answer: Answer(question.text == "Are you bitter about it?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Game Critic");
+    insert(answers);
+end
+
+rule "No bitter about it"
+when
+	$answer: Answer(question.text == "Are you bitter about it?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("Game Reviewer");
+    insert(answers);
+end
+
+rule "Can get excited"
+when
+	$answer: Answer(question.text == "Can you get excited fot other peoples' ideas?", answer == "Yes")
+then
+	Question newQuestion = new Question("Really?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Can't get excited"
+when
+	$answer: Answer(question.text == "Can you get excited fot other peoples' ideas?", answer == "No")
+then
+	Question newQuestion = new Question("Do you think games are important?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Can fake it"
+when
+	$answer: Answer(question.text == "Can you get excited fot other peoples' ideas?", answer == "Nah, but i can fake it")
+then
+	PossibleAnswers answers = new PossibleAnswers("Marketer");
+    insert(answers);
+end
+
+rule "Yes really"
+when
+	$answer: Answer(question.text == "Really?", answer == "Yes")
+then
+	Question newQuestion = new Question("Do you mind being underappreciated?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "No really"
+when
+	$answer: Answer(question.text == "Really?", answer == "No")
+then
+	Question newQuestion = new Question("Do you think games are important?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Games are important"
+when
+	$answer: Answer(question.text == "Do you think games are important?", answer == "Yes")
+then
+	Question newQuestion = new Question("Can you make games on your own?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Games are not important"
+when
+	$answer: Answer(question.text == "Do you think games are important?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("Social Games Studio Employee");
+    insert(answers);
+end
+	
+rule "I can make games on my own"
+when
+	$answer: Answer(question.text == "Can you make games on your own?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Indie Developer");
+    insert(answers);
+end
+
+rule "I can't make games on my own"
+when
+	$answer: Answer(question.text == "Can you make games on your own?", answer == "No")
+then
+	Question newQuestion = new Question("Do you know basic grammar?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "I don't know basic grammar"
+when
+	$answer: Answer(question.text == "Do you know basic grammar?", answer == "No")
+then
+	Question newQuestion = new Question("Are you at least good at playing games?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "I know basic grammar"
+when
+	$answer: Answer(question.text == "Do you know basic grammar?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Blogger");
+    insert(answers);
+end
+
+rule "I'm not good at playing games"
+when
+	$answer: Answer(question.text == "Are you at least good at playing games?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("Gamer");
+    insert(answers);
+end
+
+rule "I'm good at playing games"
+when
+	$answer: Answer(question.text == "Are you at least good at playing games?", answer == "Yes")
+then
+	Question newQuestion = new Question("Are you from Asia?");
+    PossibleAnswers answers = new PossibleAnswers("Yes, China", "Yes, Korea", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "I'm not from Asia"
+when
+	$answer: Answer(question.text == "Are you from Asia?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("Gamer");
+    insert(answers);
+end
+
+rule "I'm from Korea"
+when
+	$answer: Answer(question.text == "Are you from Asia?", answer == "Yes, Korea")
+then
+	PossibleAnswers answers = new PossibleAnswers("Starcraft Cyberathlete");
+    insert(answers);
+end
+
+rule "I'm from China"
+when
+	$answer: Answer(question.text == "Are you from Asia?", answer == "Yes, China")
+then
+	PossibleAnswers answers = new PossibleAnswers("Gold Farmer");
+    insert(answers);
+end
+
+rule "I'm from french"
+when
+	$answer: Answer(question.text == "Are you French?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Comic Artist");
+    insert(answers);
+end
+
+rule "I'am not Asian"
+when
+	$answer: Answer(question.text == "Asian?", answer == "No")
+then
+	Question newQuestion = new Question("Do you enjoy crafting crates?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "Like crafting"
+when
+	$answer: Answer(question.text == "Do you enjoy crafting crates?", answer == "Yes")
+then
+	PossibleAnswers answers = new PossibleAnswers("Environmental Artist");
+    insert(answers);
+end
+
+rule "Don't Like crafting"
+when
+	$answer: Answer(question.text == "Do you enjoy crafting crates?", answer == "No")
+then
+	PossibleAnswers answers = new PossibleAnswers("2d Artist");
+    insert(answers);
+end
+
+rule "I'm visually oriented"
+when
+	$answer: Answer(question.text == "Are you visually oriented?", answer == "Yes")
+then
+	Question newQuestion = new Question("Do you prefer working over talking?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
+
+rule "I'm not visually oriented"
+when
+	$answer: Answer(question.text == "Are you visually oriented?", answer == "No")
+then
+	Question newQuestion = new Question("Do you like to work with unfinished tools?");
+    PossibleAnswers answers = new PossibleAnswers("Yes", "No");
+    insert(newQuestion);
+    insert(answers);
+end
